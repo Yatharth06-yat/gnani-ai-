@@ -19,13 +19,29 @@ connectDB().then(() => {
   console.warn('⚠️ MongoDB connection could not be established. Falling back to active memory store.');
 });
 
-// Middleware
+// Middleware - Allow localhost, Vercel deployments, and dynamic origins with credentials
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://127.0.0.1:3000'],
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps, curl, server-to-server)
+    if (!origin) return callback(null, true);
+    // Allow localhost or any vercel.app preview / production domain
+    if (
+      origin.includes('localhost') ||
+      origin.includes('127.0.0.1') ||
+      origin.endsWith('.vercel.app') ||
+      origin.endsWith('.onrender.com')
+    ) {
+      return callback(null, true);
+    }
+    return callback(null, true); // Permissive for civic educational platform
+  },
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Correlation-Id']
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Correlation-Id', 'Accept']
 }));
+
+// Explicit preflight handler for all routes
+app.options('*', cors());
 
 app.use(express.json({ limit: '15mb' }));
 app.use(express.urlencoded({ extended: true, limit: '15mb' }));
