@@ -154,14 +154,8 @@ const Report = () => {
           throw new Error(res.data?.message || 'Node proxy returned unsuccessful');
         }
       } catch (proxyErr) {
-        console.warn('⚠️ Node proxy detection failed, falling back to direct FastAPI engine:', proxyErr.message);
-        const directForm = new FormData();
-        directForm.append('file', file);
-        const directRes = await fetch('http://127.0.0.1:8000/detect?confidence_threshold=0.25', {
-          method: 'POST',
-          body: directForm
-        });
-        data = await directRes.json();
+        console.warn('⚠️ Node proxy detection warning:', proxyErr.message);
+        throw proxyErr;
       }
 
       console.log('📊 YOLO11n detection result:', data);

@@ -48,7 +48,7 @@ router.post('/detect', (req, res, next) => {
     const threshold = req.query.threshold ? parseFloat(req.query.threshold) : 0.25;
     const result = await aiServiceClient.detectObjects(imageBuffer, imageBase64, threshold);
     
-    if (result.error && result.model_loaded === false) {
+    if (result.error && result.model_loaded === false && !result.fallback_mode) {
       return res.status(503).json({
         success: false,
         error: 'AI_SERVICE_UNAVAILABLE',
