@@ -1,0 +1,397 @@
+/* ======== Background ======== */
+.bg {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #0ea5e9 0%, #22c55e 100%);
+    background-attachment: fixed;
+    animation: fadeInBg 1s ease-in-out;
+    flex-direction: column;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  }
+  
+  /* ======== Card Container ======== */
+  .card {
+    display: flex;
+    align-items: stretch;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 22px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2),
+                0 0 40px rgba(59, 130, 246, 0.2);
+    overflow: hidden;
+    width: 100%;
+    max-width: 1050px;
+    animation: slideUp 1.1s ease forwards;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+  }
+  
+  .card:hover {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25),
+                0 0 60px rgba(59, 130, 246, 0.25);
+    transform: translateY(0);
+  }
+  
+  /* ======== Left Image Section ======== */
+  .ri {
+    flex: 1;
+    background: linear-gradient(to bottom right, #0ea5e9, #055a24);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    animation: fadeInLeft 1.2s ease-in-out;
+  }
+  
+  .ri img {
+    max-width: 100%;
+    height: 500px;
+    border-radius: 30%;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  
+  .ri img:hover {
+    transform: scale(1.07) rotate(-4deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* ======== Form Section ======== */
+  .form-side {
+    flex: 1;
+    padding: 2.8rem;
+    animation: fadeInRight 1.3s ease-in-out;
+  }
+  
+  /* ======== Header ======== */
+  .report-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .report-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.5px;
+  }
+  
+  .report-header p {
+    font-size: 0.95rem;
+    color: #1e3a8a;
+    opacity: 0.85;
+  }
+  
+  /* ======== Form ======== */
+  .report-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+  }
+  
+  /* Input Fields */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
+  }
+  
+  .form-group:nth-child(1) { animation-delay: 0.3s; }
+  .form-group:nth-child(2) { animation-delay: 0.5s; }
+  .form-group:nth-child(3) { animation-delay: 0.7s; }
+  .form-group:nth-child(4) { animation-delay: 0.9s; }
+  
+  .form-group label {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #0f172a;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    color: #0f172a;
+    backdrop-filter: blur(6px);
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: #2563eb;
+    background: rgba(255, 255, 255, 0.95);
+    outline: none;
+    box-shadow: 0 0 12px rgba(37, 99, 235, 0.25);
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  /* ======== Upload Box ======== */
+  .upload-area {
+    border: 2px dashed rgba(59, 130, 246, 0.5);
+    border-radius: 14px;
+    padding: 1.8rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .upload-area:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.03);
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.2);
+  }
+  
+  .upload-text {
+    font-size: 0.95rem;
+    color: #334155;
+  }
+  
+  /* ======== Location Display ======== */
+  .location-area {
+    background: rgba(240, 249, 255, 0.85);
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    color: #1e293b;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* ======== Buttons ======== */
+  .submit-btn {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #fff;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.25s ease;
+  }
+  
+  .submit-btn:hover {
+    background: linear-gradient(135deg, #1e40af, #1d4ed8);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(29, 78, 216, 0.4);
+  }
+  
+  /* ======== Animations ======== */
+  @keyframes fadeInBg {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes fadeInLeft {
+    from { transform: translateX(-60px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes fadeInRight {
+    from { transform: translateX(60px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* ======== Responsive Design ======== */
+  
+  /* Tablet (768px - 1024px) */
+  @media (max-width: 1024px) {
+    .card {
+      max-width: 90%;
+    }
+    .ri img {
+      height: 400px;
+    }
+  }
+  
+  /* Mobile Landscape & Small Tablets (600px - 900px) */
+  @media (max-width: 900px) {
+    .bg {
+      padding: 1.5rem 1rem;
+    }
+    .card {
+      flex-direction: column;
+      max-width: 95%;
+    }
+    .ri {
+      padding: 1.5rem;
+      min-height: 250px;
+    }
+    .ri img {
+      max-width: 70%;
+      height: 300px;
+    }
+    .form-side {
+      padding: 2rem 1.5rem;
+    }
+    .report-header h1 {
+      font-size: 1.8rem;
+    }
+  }
+  
+  /* Mobile Portrait (480px - 768px) */
+  @media (max-width: 768px) {
+    .bg {
+      padding: 1rem 0.5rem;
+      min-height: auto;
+    }
+    .card {
+      max-width: 100%;
+      margin: 0.5rem;
+      border-radius: 16px;
+    }
+    .ri {
+      padding: 1rem;
+      min-height: 200px;
+    }
+    .ri img {
+      max-width: 60%;
+      height: 250px;
+    }
+    .form-side {
+      padding: 1.5rem 1rem;
+    }
+    .report-header h1 {
+      font-size: 1.6rem;
+    }
+    .report-header p {
+      font-size: 0.85rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.75rem 0.85rem;
+      font-size: 0.9rem;
+    }
+    .submit-btn {
+      padding: 0.8rem;
+      font-size: 0.95rem;
+    }
+    .upload-area {
+      padding: 1.2rem;
+    }
+  }
+  
+  /* Small Mobile (320px - 480px) */
+  @media (max-width: 480px) {
+    .bg {
+      padding: 0.5rem;
+    }
+    .card {
+      border-radius: 12px;
+      margin: 0.25rem;
+    }
+    .ri {
+      padding: 0.75rem;
+      min-height: 150px;
+    }
+    .ri img {
+      max-width: 75%;
+      height: 180px;
+      border-radius: 20%;
+    }
+    .form-side {
+      padding: 1rem 0.75rem;
+    }
+    .report-header {
+      margin-bottom: 1.5rem;
+    }
+    .report-header h1 {
+      font-size: 1.4rem;
+      letter-spacing: -0.3px;
+    }
+    .report-header p {
+      font-size: 0.8rem;
+    }
+    .report-form {
+      gap: 1rem;
+    }
+    .form-group label {
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.7rem 0.75rem;
+      font-size: 0.85rem;
+      border-radius: 10px;
+    }
+    textarea {
+      min-height: 80px;
+    }
+    .upload-area {
+      padding: 1rem 0.75rem;
+    }
+    .upload-text {
+      font-size: 0.85rem;
+    }
+    .location-area {
+      padding: 0.85rem 1rem;
+      font-size: 0.85rem;
+    }
+    .submit-btn {
+      padding: 0.75rem;
+      font-size: 0.9rem;
+      border-radius: 10px;
+    }
+  }
+  
+  /* Extra Small Mobile (< 375px) */
+  @media (max-width: 375px) {
+    .bg {
+      padding: 0.25rem;
+    }
+    .card {
+      margin: 0;
+    }
+    .ri img {
+      max-width: 80%;
+      height: 150px;
+    }
+    .form-side {
+      padding: 0.75rem 0.5rem;
+    }
+    .report-header h1 {
+      font-size: 1.2rem;
+    }
+    .report-header p {
+      font-size: 0.75rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.6rem 0.65rem;
+      font-size: 0.8rem;
+    }
+    .submit-btn {
+      padding: 0.65rem;
+      font-size: 0.85rem;
+    }
+  }
+  

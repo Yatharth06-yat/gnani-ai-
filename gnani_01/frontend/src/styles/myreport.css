@@ -1,0 +1,267 @@
+
+.my-reports-page {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    font-family: 'Inter', sans-serif;
+    color: #1a1a1a;
+    animation: fadeIn 0.8s ease forwards;
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Page heading */
+  .my-reports-page h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    animation: slideIn 0.8s ease forwards;
+  }
+  
+  @keyframes slideIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Filter controls */
+  .filter-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+  }
+  
+  .filter-controls label {
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  
+  .filter-controls select {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .filter-controls select:hover {
+    border-color: #007bff;
+    transform: scale(1.05);
+  }
+  
+  /* Loading state */
+  .loading {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 2rem;
+    animation: pulse 1.5s infinite;
+  }
+  
+  /* Pulse animation for loading */
+  @keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+  }
+  
+  /* Grid for issues */
+  .issues-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  /* Status badges */
+  .status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 12px;
+    color: #fff;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    transition: transform 0.3s;
+  }
+  
+  .status-reported { background-color: #e74c3c; }
+  .status-in-progress { background-color: #f1c40f; color: #333; }
+  .status-resolved { background-color: #2ecc71; }
+  
+  /* Hover animation for badges */
+  .status-badge:hover {
+    transform: scale(1.1);
+  }
+  
+  /* IssueCard container animation */
+  .issues-grid > div {
+    animation: cardFadeIn 0.6s ease forwards;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  /* Card hover effect */
+  .issues-grid > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  }
+  
+  /* Card fade-in animation */
+  @keyframes cardFadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* No reports message */
+  .my-reports-page > div:empty {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #777;
+    margin-top: 2rem;
+  }
+  
+  /* ======== Responsive Design ======== */
+  
+  /* Tablet (768px - 1024px) */
+  @media (max-width: 1024px) {
+    .my-reports-page {
+      max-width: 95%;
+      padding: 0 1rem;
+    }
+    
+    .issues-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.25rem;
+    }
+  }
+  
+  /* Mobile Landscape & Small Tablets (600px - 900px) */
+  @media (max-width: 900px) {
+    .my-reports-page {
+      margin: 1.5rem auto;
+    }
+    
+    .my-reports-page h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    .issues-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+  }
+  
+  /* Mobile Portrait (480px - 768px) */
+  @media (max-width: 768px) {
+    .my-reports-page {
+      margin: 1rem auto;
+      padding: 0 0.75rem;
+    }
+    
+    .my-reports-page h1 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+    
+    .filter-controls {
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .filter-controls label {
+      font-size: 0.95rem;
+    }
+    
+    .filter-controls select {
+      padding: 0.45rem 0.65rem;
+      font-size: 0.95rem;
+    }
+    
+    .issues-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    .status-badge {
+      padding: 0.2rem 0.5rem;
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* Small Mobile (320px - 480px) */
+  @media (max-width: 480px) {
+    .my-reports-page {
+      margin: 0.75rem auto;
+      padding: 0 0.5rem;
+    }
+    
+    .my-reports-page h1 {
+      font-size: 1.4rem;
+      margin-bottom: 0.85rem;
+    }
+    
+    .filter-controls {
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    .filter-controls label {
+      font-size: 0.9rem;
+    }
+    
+    .filter-controls select {
+      width: 100%;
+      padding: 0.4rem 0.6rem;
+      font-size: 0.9rem;
+    }
+    
+    .loading {
+      font-size: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .issues-grid {
+      gap: 0.85rem;
+    }
+    
+    .status-badge {
+      padding: 0.18rem 0.45rem;
+      font-size: 0.75rem;
+    }
+    
+    .my-reports-page > div:empty {
+      font-size: 1rem;
+      margin-top: 1.5rem;
+    }
+  }
+  
+  /* Extra Small Mobile (< 375px) */
+  @media (max-width: 375px) {
+    .my-reports-page {
+      padding: 0 0.4rem;
+    }
+    
+    .my-reports-page h1 {
+      font-size: 1.25rem;
+    }
+    
+    .filter-controls select {
+      padding: 0.35rem 0.5rem;
+      font-size: 0.85rem;
+    }
+    
+    .issues-grid {
+      gap: 0.75rem;
+    }
+  }
+  

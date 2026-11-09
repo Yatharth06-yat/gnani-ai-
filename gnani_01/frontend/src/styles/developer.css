@@ -1,0 +1,243 @@
+/* Developer Page Animations */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Hover Effects */
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
+
+.skill-tag:hover {
+  background-color: #4f46e5 !important;
+  color: white !important;
+  transform: translateY(-2px);
+}
+
+.tech-tag:hover {
+  background-color: #10b981 !important;
+  transform: translateY(-2px);
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3) !important;
+}
+
+.secondary-button:hover {
+  background-color: white !important;
+  color: #4f46e5 !important;
+}
+
+.cta-primary:hover {
+  background-color: #059669 !important;
+  transform: translateY(-2px);
+}
+
+.cta-secondary:hover {
+  background-color: white !important;
+  color: #1f2937 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .project-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  
+  .hero-buttons {
+    flex-direction: column !important;
+    width: 100%;
+  }
+  
+  .hero-buttons button {
+    width: 100%;
+  }
+  
+  .name {
+    font-size: 36px !important;
+  }
+  
+  .title {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 20px !important;
+  }
+  
+  .name {
+    font-size: 28px !important;
+  }
+  
+  .title {
+    font-size: 18px !important;
+  }
+  
+  .tagline {
+    font-size: 16px !important;
+  }
+  
+  .contact-section {
+    padding: 20px !important;
+  }
+  
+  .project-card {
+    padding: 20px !important;
+  }
+  
+  .cta-section {
+    padding: 40px 20px !important;
+  }
+}
+
+/* Animation Classes */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+/* Status Dot Animation */
+.status-dot {
+  animation: pulse 2s infinite;
+}
+
+/* Gradient Text Effect */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card Hover Effects */
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1) !important;
+}
+
+.skills-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08) !important;
+}
+
+/* Button Loading State */
+.button-loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.button-loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  margin: auto;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Tooltip Effect */
+.tooltip {
+  position: relative;
+  cursor: pointer;
+}
+
+.tooltip::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1f2937;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #1f2937;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.tooltip:hover::before,
+.tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+  bottom: calc(100% + 5px);
+}

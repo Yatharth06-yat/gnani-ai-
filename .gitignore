@@ -1,0 +1,16 @@
+node_modules/
+**/node_modules/
+.env
+**/.env
+!**/.env.example
+.DS_Store
+**/.DS_Store
+**/__pycache__/
+*.pyc
+venv/
+**/venv/
+.venv/
+**/.venv/
+build/
+**/build/
+backend/scripts/probe_output/

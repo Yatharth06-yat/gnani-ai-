@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-11-07T19:30:00.878Z",
+  "languages": {
+    "hi-IN": {
+      "name": "Hindi",
+      "native": "हिंदी",
+      "locale": "hi-IN",
+      "checkedAt": "2026-11-07T19:29:55.437Z",
+      "tts": true,
+      "stt": true,
+      "voice": "Nalini",
+      "ttsLatencyMs": 1214,
+      "sttLatencyMs": 726,
+      "ttsModel": "timbre-v2.5",
+      "sttModel": "prisma-v3.0",
+      "sampleFile": "hi-IN_Nalini.wav",
+      "notes": [
+        "TTS generated (Nalini, 322604 bytes, 1214ms)",
+        "STT roundtrip passed: \"नमस्ते, मैं स्वच्छ साथी हूँ। आपके इलाके में स\" (726ms)"
+      ],
+      "status": "FULL_VOICE_SUPPORTED",
+      "verified": true
+    },
+    "en-IN": {
+      "name": "English",
+      "native": "English",
+      "locale": "en-IN",
+      "checkedAt": "2026-11-07T19:29:57.531Z",
+      "tts": true,
+      "stt": true,
+      "voice": "Nalini",
+      "ttsLatencyMs": 1081,
+      "sttLatencyMs": 550,
+      "ttsModel": "timbre-v2.5",
+      "sttModel": "prisma-v3.0",
+      "sampleFile": "en-IN_Nalini.wav",
+      "notes": [
+        "TTS generated (Nalini, 322604 bytes, 1081ms)",
+        "STT roundtrip passed: \"Hello, I am Swachh Sathhi, your AI civic assi\" (550ms)"
+      ],
+      "status": "FULL_VOICE_SUPPORTED",
+      "verified": true
+    },
+    "mr-IN": {
+      "name": "Marathi",
+      "native": "मराठी",
+      "locale": "mr-IN",
+      "checkedAt": "2026-11-07T19:29:59.223Z",
+      "tts": true,
+      "stt": true,
+      "voice": "Nalini",
+      "ttsLatencyMs": 1160,
+      "sttLatencyMs": 433,
+      "ttsModel": "timbre-v2.5",
+      "sttModel": "prisma-v3.0",
+      "sampleFile": "mr-IN_Nalini.wav",
+      "notes": [
+        "TTS generated (Nalini, 345644 bytes, 1160ms)",
+        "STT roundtrip passed: \"नमस्कार, मी स्वच्छ साथी आहे. तुमच्या परिसरात \" (433ms)"
+      ],
+      "status": "FULL_VOICE_SUPPORTED",
+      "verified": true
+    }
+  }
+}
