@@ -4,6 +4,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import LanguageSelector from './LanguageSelector';
 import { getUIStrings } from '../utils/localizedStrings';
+import { BACKEND_URL } from '../utils/api';
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -12,7 +13,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png'
 });
 
-const API_BASE = 'http://localhost:8002/api/gnani';
+const API_BASE = `${BACKEND_URL}/api/gnani`;
 const INDIA_VIEW = { center: [22.97, 78.66], zoom: 5 }; // Viewport default only — never saved as complaint location
 
 // ── Audio: record -> true 16 kHz mono PCM WAV (supported by Gnani Prisma) ──

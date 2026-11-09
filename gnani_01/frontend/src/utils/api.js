@@ -1,11 +1,13 @@
 import axios from 'axios';
 
+export const BACKEND_URL = process.env.REACT_APP_API_URL || 'https://gnani-ai-df6s.onrender.com';
+
 const api = axios.create({
-  baseURL: 'http://localhost:8002', // Backend server running on port 8002
+  baseURL: BACKEND_URL,
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 10000, // 10 second timeout
+  timeout: 15000,
 });
 
 // Request interceptor to add auth token

@@ -1,7 +1,9 @@
 import React, { useMemo, useState, useRef, useEffect } from 'react';
 import { getUIStrings } from '../utils/localizedStrings';
 
-const API_BASE = 'http://localhost:8002/api/gnani';
+import { BACKEND_URL } from '../utils/api';
+
+const API_BASE = `${BACKEND_URL}/api/gnani`;
 
 // Honest availability label per support status (comes directly from the backend registry)
 const STATUS_LABEL = {

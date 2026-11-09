@@ -8,10 +8,11 @@ import {
   resolveMapMarkerLocation
 } from '../../services/wakeWord/agentOrchestrator';
 import { getUIStrings } from '../../utils/localizedStrings';
+import { BACKEND_URL } from '../../utils/api';
 import LanguageSelector from '../LanguageSelector';
 import './SiriAssistant.css';
 
-const API_BASE = 'http://localhost:8002/api/gnani';
+const API_BASE = `${BACKEND_URL}/api/gnani`;
 
 // Format time
 function formatDuration(sec) {
