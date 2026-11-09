@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  # 1. FastAPI AI Inference Engine (YOLO11n + MobileNetV2)
+  ai_service:
+    build:
+      context: ./gnani_01/ai_service
+      dockerfile: Dockerfile
+    container_name: swachhmap-ai-service
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - YOLO_MODEL_PATH=/app/app/models/yolo11n.pt
+      - CONFIDENCE_THRESHOLD=0.25
+
+  # 2. Express Backend (Gnani Voice + MongoDB / REST API)
+  backend:
+    build:
+      context: ./gnani_01/backend
+      dockerfile: Dockerfile
+    container_name: swachhmap-backend
+    restart: always
+    ports:
+      - "8002:8002"
+    environment:
+      - PORT=8002
+      - AI_SERVICE_URL=http://ai_service:8000
+      - NODE_ENV=production
+    depends_on:
+      - ai_service
+
+  # 3. React Frontend (Siri Voice Assistant + Leaflet Map)
+  frontend:
+    build:
+      context: ./gnani_01/frontend
+      dockerfile: Dockerfile
+    container_name: swachhmap-frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
